@@ -1,0 +1,29 @@
+CompileFlags:
+  Add:
+    # C++ standard
+    - -std=c++23
+
+    # CUDA Toolkit 12.6 path (default on Linux)
+    - --cuda-path=/usr/local/cuda-12.6
+
+    # CUDA headers
+    - -I/usr/local/cuda-12.6/include
+    - -I/usr/local/cuda-12.6/include/crt
+
+    # Architecture for RTX 3070 Ti Laptop GPU
+    - --cuda-gpu-arch=sm_86
+
+    # Treat .cu files as CUDA
+    - -x
+    - cuda
+
+
+Diagnostics:
+  Suppress:
+    # CUDA headers often trigger these harmless warnings
+    - unknown-warning-option
+    - ptx-nothing-to-compile
+
+InlayHints:
+  Enabled: Yes
+
